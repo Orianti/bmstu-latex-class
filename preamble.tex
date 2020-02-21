@@ -1,0 +1,76 @@
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage[left=30mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+
+\usepackage{microtype}
+\sloppy
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{indentfirst}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{20pt}{\LARGE\bfseries}
+\titleformat{\section}{\Large\bfseries}{\thesection}{20pt}{\Large\bfseries}
+
+\usepackage{caption}
+
+\usepackage{wrapfig}
+
+\usepackage{graphicx}
+\newcommand{\imgw}[4]
+{
+	\begin{figure}[#1]
+		\center{\includegraphics[width=#2]{inc/img/#3}}
+		\caption{#4}
+		\label{img:#3}
+	\end{figure}
+}
+\newcommand{\imgh}[4]
+{
+	\begin{figure}[#1]
+		\center{\includegraphics[height=#2]{inc/img/#3}}
+		\caption{#4}
+		\label{img:#3}
+	\end{figure}
+}
+\newcommand{\imgwrap}[5]
+{
+	\begin{wrapfigure}[#2]{#3}{#1\linewidth}
+		\includegraphics[width=\linewidth]{inc/img/#4}
+		\caption{#5}
+		\label{img:#4}
+	\end{wrapfigure}
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{listings}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\color{blue},
+	stringstyle=\color{red},
+	commentstyle=\color{gray},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	frame=false,
+	breaklines=true,
+	breakatwhitespace=true,
+}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{hidelinks}
+
+\makeatletter
+	\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
