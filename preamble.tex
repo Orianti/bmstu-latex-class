@@ -11,6 +11,7 @@
 \onehalfspacing
 
 \usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
 
 \usepackage{titlesec}
 \titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{20pt}{\LARGE\bfseries}
@@ -19,9 +20,10 @@
 \usepackage{caption}
 
 \usepackage{wrapfig}
+\usepackage{float}
 
 \usepackage{graphicx}
-\newcommand{\imgw}[4]
+\newcommand{\imgwc}[4]
 {
 	\begin{figure}[#1]
 		\center{\includegraphics[width=#2]{inc/img/#3}}
@@ -29,12 +31,18 @@
 		\label{img:#3}
 	\end{figure}
 }
-\newcommand{\imgh}[4]
+\newcommand{\imghc}[4]
 {
 	\begin{figure}[#1]
 		\center{\includegraphics[height=#2]{inc/img/#3}}
 		\caption{#4}
-		\label{img:#3}
+		\label{img:#1}
+	\end{figure}
+}
+\newcommand{\imgs}[3]
+{
+	\begin{figure}[#1]
+		\center{\includegraphics[scale=#2]{inc/img/#3}}
 	\end{figure}
 }
 \newcommand{\imgwrap}[5]
@@ -72,5 +80,5 @@
 \hypersetup{hidelinks}
 
 \makeatletter
-	\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
 \makeatother
