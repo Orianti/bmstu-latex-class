@@ -11,7 +11,7 @@
 \onehalfspacing
 
 \usepackage{indentfirst}
-\setlength{\parindent}{1.25cm}
+\setlength{\parindent}{125mm}
 
 \usepackage{titlesec}
 \titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{20pt}{\LARGE\bfseries}
@@ -40,22 +40,16 @@
 	\begin{figure}[#1]
 		\center{\includegraphics[height=#2]{inc/img/#3}}
 		\caption{#4}
-		\label{img:#1}
+		\label{img:#3}
 	\end{figure}
 }
-\newcommand{\imgs}[3]
+\newcommand{\imgsc}[4]
 {
 	\begin{figure}[#1]
 		\center{\includegraphics[scale=#2]{inc/img/#3}}
+		\caption{#4}
+		\label{img:#3}
 	\end{figure}
-}
-\newcommand{\imgwrap}[5]
-{
-	\begin{wrapfigure}[#2]{#3}{#1\linewidth}
-		\includegraphics[width=\linewidth]{inc/img/#4}
-		\caption{#5}
-		\label{img:#4}
-	\end{wrapfigure}
 }
 
 \usepackage{pgfplots}
