@@ -1,0 +1,87 @@
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage[left=30mm, right=20mm, top=20mm, bottom=20mm]{geometry}
+
+\usepackage{microtype}
+\sloppy
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{indentfirst}
+\setlength{\parindent}{12.5mm}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\LARGE\bfseries}{\thechapter}{20pt}{\LARGE\bfseries}
+\titleformat{\section}{\Large\bfseries}{\thesection}{20pt}{\Large\bfseries}
+
+\addto{\captionsrussian}{\renewcommand*{\contentsname}{Содержание}}
+\usepackage{natbib}
+\renewcommand{\bibsection}{\chapter*{Список использованных источников}}
+
+\usepackage{caption}
+
+\usepackage{wrapfig}
+\usepackage{float}
+
+\usepackage{graphicx}
+\newcommand{\imgwc}[4]
+{
+	\begin{figure}[#1]
+		\center{\includegraphics[width=#2]{inc/img/#3}}
+		\caption{#4}
+		\label{img:#3}
+	\end{figure}
+}
+\newcommand{\imghc}[4]
+{
+	\begin{figure}[#1]
+		\center{\includegraphics[height=#2]{inc/img/#3}}
+		\caption{#4}
+		\label{img:#3}
+	\end{figure}
+}
+\newcommand{\imgsc}[4]
+{
+	\begin{figure}[#1]
+		\center{\includegraphics[scale=#2]{inc/img/#3}}
+		\caption{#4}
+		\label{img:#3}
+	\end{figure}
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\usepackage{listings}
+\usepackage{listingsutf8}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\color{blue},
+	stringstyle=\color{red},
+	commentstyle=\color{gray},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	frame=false,
+	breaklines=true,
+	breakatwhitespace=true,
+	inputencoding=utf8/koi8-r
+}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{hidelinks}
+
+\makeatletter
+\newcommand{\vhrulefill}[1]
+{
+	\leavevmode\leaders\hrule\@height#1\hfill \kern\z@
+}
+\makeatother
