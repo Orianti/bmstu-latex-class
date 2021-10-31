@@ -1,10 +1,14 @@
-# Класс документа LaTeX для МГТУ им. Н. Э. Баумана
+# LaTeX-класс bmstu
 
-Класс bmstu определяет команды и окружения для упрощения создания отчетов и расчетно-пояснительных записок в соответствии с требованиями МГТУ им. Н. Э. Баумана.
+Класс `bmstu.cls` определяет команды и окружения для создания отчетов и расчетно-пояснительных записок в соответствии с требованиями МГТУ им. Н. Э. Баумана.
 
 Сгенерированные файлы соответствуют ГОСТ 7.32-2017, расчетно-пояснительные записки к выпускным квалификационным работам успешно проходят проверку TestVKR.exe (сборка 203).
 
+В файле [example/example.pdf](example/example.pdf) представлены примеры использования команд и окружений класса. В директории [templates/report/](templates/report/) представлен шаблон проекта для отчета, в [templates/coursework/](templates/coursework/) — для расчетно-пояснительно записки к курсовой работе, в [templates/thesis/](templates/thesis/) — для расчетно-пояснительно записки к выпускной квалификационной работе.
+
 ## Установка
+
+В классе используются следующие пакеты: ```afterpage, amsmath, amssymb, appendix, babel, blatex, booktabs, csquotes, enumitem, etoolbox, extreport, float, fontenc, geometry, graphicx, hyperref, indentfirst, inputenc, lastpage, listings, listingsutf8, lscape, microtype, pgfplots, setspace, stackengine, tabularx, tikzscale, titlesec, ulem, wrapfig, xifthen```. Во избежание проблем после установки класса, убедитесь, что все необходимые пакеты установлены.
 
 ### Linux
 
@@ -19,4 +23,4 @@ cp bmstu.cwl ~/.config/texstudio/completion/user/
 
 ### Windows 10
 
-Скопировать директорию `bmstu` в `C:\Users\<user name>\Appdata\Local\MikTex\<number>\tex\latex\local\`.
+Скопировать директорию `bmstu` в `C:\Users\<user>\Appdata\Local\MikTex\<number>\tex\latex\local\`.
