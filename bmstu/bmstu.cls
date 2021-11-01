@@ -1,16 +1,16 @@
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bmstu}
+\ProvidesClass{bmstu}[2021/11/01 v1.0 BMSTU class]
 
 
 % Настройка документа ----------------------------------------------------------
 % ------------------------------------------------------------------------------
 
 % Установка базового класса
-\LoadClass[a4paper,oneside,14pt]{extreport}
+\LoadClass[a4paper, oneside, 14pt]{extreport}
 
 % Настройка кодировки и языков
-\RequirePackage[T1,T2A]{fontenc}
+\RequirePackage[T1, T2A]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english,main=russian]{babel}
 
@@ -19,7 +19,7 @@
 	left=30mm,
 	right=10mm, % Является требованием МГТУ, не соответствует ГОСТ 7.32-2017
 	top=20mm,
-	bottom=20mm
+	bottom=20mm,
 ]{geometry}
 
 % Настройка переносов
@@ -102,7 +102,14 @@
 
 % Создание листинга
 \newcommand{\listingfile}[4]{
-	\lstinputlisting[float=h!, abovecaptionskip=-5pt, caption={#3}, label={lst:#1}, language={#2}, #4]{inc/lst/#1}
+	\lstinputlisting[
+		float=h!,
+		abovecaptionskip=-5pt,
+		caption={#3},
+		label={lst:#1},
+		language={#2},
+		#4,
+	]{inc/lst/#1}
 }
 
 % Настройка подписей
@@ -126,7 +133,7 @@
 	style=gost-numeric,
 	language=auto,
 	autolang=other,
-	sorting=none
+	sorting=none,
 ]{biblatex}
 \RequirePackage{csquotes}
 
@@ -164,7 +171,8 @@
 
 % Создание горизонтальной линии
 \makeatletter
-\newcommand{\vhrulefill}[1]{
+\newcommand{\vhrulefill}[1]
+{
 	\leavevmode\leaders\hrule\@height#1\hfill \kern\z@
 }
 \makeatother
@@ -204,7 +212,8 @@
 }
 
 % Установка заголовков РПЗ
-\newcommand{\titlepagenotetitle}[2]{
+\newcommand{\titlepagenotetitle}[2]
+{
 	{
 		\LARGE \bfseries
 		РАСЧЕТНО-ПОЯСНИТЕЛЬНАЯ ЗАПИСКА \\
@@ -220,7 +229,8 @@
 }
 
 % Установка заголовков отчета
-\newcommand{\titlepagereporttitle}[4]{
+\newcommand{\titlepagereporttitle}[4]
+{
 	\textbf{ОТЧЕТ} \\
 	по #1 \\
 	\ifthenelse{\isempty{#2}}{}{по курсу <<#2>> \\}
@@ -229,21 +239,24 @@
 }
 
 % Создание поля студента
-\newcommand{\titlepagestudent}[2]{
+\newcommand{\titlepagestudent}[2]
+{
 	Студент \fixunderline{#1}{25mm}{(Группа)} &
 	\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &
 	\fixunderline{#2}{40mm}{(И.~О.~Фамилия)} \\
 }
 
 % Создание прочих полей
-\newcommand{\titlepageothers}[2]{
+\newcommand{\titlepageothers}[2]
+{
 	#1 &
 	\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &
 	\fixunderline{#2}{40mm}{(И.~О.~Фамилия)} \\
 }
 
 % Установка исполнителей работы
-\newcommand{\titlepageauthors}[7]{
+\newcommand{\titlepageauthors}[7]
+{
 	{
 		\small
 		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
@@ -370,12 +383,19 @@
 }%
 \makeatother
 
+% Подсчет количества приложений
+\usepackage{totcount, assoccnt}
+\newcounter{appendixchapters}
+\DeclareAssociatedCounters{chapter}{appendixchapters}
+\regtotcounter{appendixchapters}
+
 % Создание страницы реферата
-\newenvironment{essay}[1]{
+\newenvironment{essay}[1]
+{
 	\chapter*{РЕФЕРАТ}
 	\addcontentsline{toc}{chapter}{РЕФЕРАТ}
 	
-	Расчетно-пояснительная записка \begin{NoHyper}\pageref{LastPage}\end{NoHyper}~с., \totfig~рис., \tottab~табл., \thetotbibentries~источн., qqqqqqq~прил.
+	Расчетно-пояснительная записка \begin{NoHyper}\pageref{LastPage}\end{NoHyper}~с., \totfig~рис., \tottab~табл., \thetotbibentries~источн., \total{appendixchapters}~прил.
 	
 	\noindent \MakeUppercase{#1} \par
 }{}
@@ -385,7 +405,8 @@
 % ------------------------------------------------------------------------------
 
 % Создание содержания
-\newcommand{\maketableofcontents}{
+\newcommand{\maketableofcontents}
+{
 	\renewcommand\contentsname{СОДЕРЖАНИЕ}
 	\tableofcontents
 }
@@ -396,12 +417,14 @@
 
 % Создание элемента
 \RequirePackage{enumitem}
-\newcommand{\definition}[2]{
+\newcommand{\definition}[2]
+{
 	\item \noindent #1 --- #2
 }
 
 % Создание страницы определений
-\newenvironment{definitions}{
+\newenvironment{definitions}
+{
 	\chapter*{ОПРЕДЕЛЕНИЯ}
 	\addcontentsline{toc}{chapter}{ОПРЕДЕЛЕНИЯ}
 	
@@ -414,14 +437,16 @@
 }
 
 % Создание страницы обозначений и сокращений
-\newenvironment{abbreviations}{
+\newenvironment{abbreviations}
+{
 	\chapter*{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
 	\addcontentsline{toc}{chapter}{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
 	
 	В настоящей расчетно-пояснительной записке применяют следующие сокращения и обозначения.
 	
 	\begin{description}[leftmargin=0pt]
-}{
+}
+{
 	\end{description}
 }
 
@@ -429,11 +454,9 @@
 % Список использованных источников ---------------------------------------------
 % ------------------------------------------------------------------------------
 
-% Установка имени входного файла источников
-\addbibresource{biblio.bib}
-
 % Создание списка использованных источников
-\newcommand{\makebibliography}{
+\newcommand{\makebibliography}
+{
 	\printbibliography[title=СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ]
 	\addcontentsline{toc}{chapter}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
 }
@@ -445,17 +468,20 @@
 % Установка заголовков приложений
 \RequirePackage[
 	titletoc,
-	title
+	title,
 ]{appendix}
 \AtBeginDocument{\renewcommand{\appendixname}{ПРИЛОЖЕНИЕ}}
 
 % Создание приложений
 \let\oldappendices\appendices
 \let\oldendappendices\endappendices
-\renewenvironment{appendices}{
+\renewenvironment{appendices}
+{
 	\titleformat{\chapter}{\large\bfseries}{\appendixname~\thechapter}{0pt}{\centering\large\bfseries\\}
+	\setcounter{appendixchapters}{0}
 	\oldappendices
 	\renewcommand{\thechapter}{\Asbuk{chapter}}
-}{
+}
+{
 	\oldendappendices
 }

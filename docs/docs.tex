@@ -1,5 +1,6 @@
 \documentclass{bmstu}
 
+\bibliography{biblio}
 \lstset{frame=none, tabsize=4}
 
 \begin{document}
@@ -49,7 +50,11 @@
 Команда генерации страницы списка использованных источников:
 \listingfile{commands.tex}{}{}{firstline=19, lastline=19, moredelim={*[s][\color{red}]{<}{>}}, moredelim={*[s][\color{darkgray}]{[}{]}}}
 
-Для создания списка используется пакет \href{https://www.ctan.org/pkg/biblatex}{biblatex}. Базу источников необходимо сохранить в файле {\ttfamily biblio.bib}. Страница не будет сгенерирована, если файл {\ttfamily biblio.bib} отсутствует или не содержит источников, ссылки на которые заданы в тексте командой {\ttfamily \textbackslash cite}.
+Для создания списка используется пакет \href{https://www.ctan.org/pkg/biblatex}{biblatex}. Базу источников необходимо сохранить в файле {\ttfamily biblio.bib} в корне проекта. После объявления класса {\ttfamily \textbackslash documentclass\{bmstu\}} необходимо выполнить команду {\ttfamily  \textbackslash bibliography\{biblio\}}.
+
+\textit{Примечание.} Команда {\ttfamily  \textbackslash bibliography} может содержать абсолютный путь к файлу.
+
+\textit{Примечание.} Страница не будет сгенерирована, если файл {\ttfamily biblio.bib} отсутствует или не содержит источников, ссылки на которые заданы в тексте командой {\ttfamily \textbackslash cite}.
 
 \section{Страницы приложений}
 
