@@ -133,9 +133,10 @@
 	sorting=none,
 ]{biblatex}
 \RequirePackage{csquotes}
+\DeclareFieldFormat{urldate}{(дата обращения:\addspace\thefield{urlday}\adddot \thefield{urlmonth}\adddot\thefield{urlyear})}
 
 % Подключение пакета для гиперссылок
-\RequirePackage[unicode, hidelinks]{hyperref}
+\RequirePackage[unicode,hidelinks]{hyperref}
 
 % Подключение пакета для управляющих конструкций
 \RequirePackage{xifthen}
