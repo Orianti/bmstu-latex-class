@@ -38,10 +38,10 @@
 \renewcommand\large{\@setfontsize\large{16pt}{20}}
 \makeatother
 \RequirePackage{titlesec}
-\titleformat{\chapter}{\large\bfseries}{\thechapter}{14pt}{\large\bfseries}
-\titleformat{name=\chapter,numberless}{}{}{0pt}{\large\bfseries\centering}
-\titleformat{\section}{\large\bfseries}{\thesection}{14pt}{\large\bfseries}
-\titleformat{\subsection}{\large\bfseries}{\thesubsection}{14pt}{\large\bfseries}
+\titleformat{\chapter}{\large\bfseries}{\thechapter}{0.5em}{\large\bfseries\raggedright}
+\titleformat{name=\chapter,numberless}{}{}{0pt}{\large\bfseries\centering\raggedright}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.5em}{\large\bfseries\raggedright}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{\large\bfseries\raggedright}
 \titlespacing{\chapter}{12.5mm}{-22pt}{10pt}
 \titlespacing{\section}{12.5mm}{10pt}{10pt}
 \titlespacing{\subsection}{12.5mm}{10pt}{10pt}
