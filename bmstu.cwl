@@ -23,4 +23,4 @@
 \imgh{filename}{position}{height}{caption}
 \imgs{filename}{position}{scale}{caption}
 
-\listingfile{filename}{language}{caption}
+\listingfile{filename}{language}{caption}{other parameters}
