@@ -1,0 +1,34 @@
+% Создание элемента
+\RequirePackage{enumitem}
+\newcommand{\definition}[2]
+{
+	\item \noindent #1 --- #2
+}
+
+% Создание страницы определений
+\newenvironment{definitions}
+{
+	\chapter*{ОПРЕДЕЛЕНИЯ}
+	\addcontentsline{toc}{chapter}{ОПРЕДЕЛЕНИЯ}
+	
+	В настоящей расчетно-пояснительной записке применяют следующие термины с соответствующими определениями.
+	
+	\begin{description}[leftmargin=0pt]
+	}
+	{
+	\end{description}
+}
+
+% Создание страницы обозначений и сокращений
+\newenvironment{abbreviations}
+{
+	\chapter*{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+	\addcontentsline{toc}{chapter}{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+	
+	В настоящей расчетно-пояснительной записке применяют следующие сокращения и обозначения.
+	
+	\begin{description}[leftmargin=0pt]
+	}
+	{
+	\end{description}
+}
