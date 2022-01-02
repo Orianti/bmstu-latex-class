@@ -1,5 +1,10 @@
 # LaTeX-класс bmstu
 
+![Version shield](https://img.shields.io/ctan/v/bmstu)
+![License shield](https://img.shields.io/ctan/l/bmstu)
+![Last commit shield](https://img.shields.io/github/last-commit/Orianti/bmstu-latex-class/master)
+![TestVKR build shield](https://img.shields.io/badge/TestVKR%20build-203-blue)
+
 Класс `bmstu` определяет команды и окружения для создания отчетов и расчетно-пояснительных записок в соответствии с требованиями МГТУ им. Н. Э. Баумана. Основан на классе `extreport`.
 
 Приведены [**примеры использования команд**](docs/examples.md).
