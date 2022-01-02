@@ -1,5 +1,6 @@
 \makereporttitle{faculty}{department}{type}{course (optional)}{theme (optional)}{option (optional)}{group}{student}{teacher}
 \makecourseworktitle{faculty}{department}{theme}{group}{student}{academic advisor}{consultant (optional)}{consultant (optional)}
+\makeresearchtitle{faculty}{department}{theme}{group}{student}{academic advisor}{consultant (optional)}{consultant (optional)}
 \makethesistitle{faculty}{department}{theme}{group}{student}{academic advisor}{consultant (optional)}{consultant (optional)}{supervisor}
 
 \begin{essay}{keywords}

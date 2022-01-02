@@ -13,7 +13,7 @@
 ### Linux
 
 ```bash
-cp -R bmstu ~/texmf/tex/latex/
+cp -R bmstu $(kpsewhich -var-value=TEXMFHOME)
 ```
 
 Рекомендуется установить подсказки для редактора, которые определены в файле `bmstu.cwl`. Например, для установки подсказок в TeXstudio необходимо выполнить следующую команду:

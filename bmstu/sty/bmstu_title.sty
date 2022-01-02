@@ -62,6 +62,23 @@
 	}
 }
 
+% Установка заголовков отчета по НИР
+\newcommand{\titlepageresearchtitle}[1]
+{
+	{
+		\LARGE \bfseries
+		ОТЧЕТ \\
+	}
+	\vspace{5mm}
+	{
+		\Large \itshape
+		ПО НАУЧНО-ИССЛЕДОВАТЕЛЬСКОЙ РАБОТЕ \\
+		\vspace{5mm}
+		НА ТЕМУ: \\
+		<<#1>> \\
+	}
+}
+
 % Установка заголовков РПЗ
 \newcommand{\titlepagenotetitle}[2]
 {
@@ -121,7 +138,6 @@
 }
 
 % Создание титульной страницы РПЗ к ВКР
-\makeatletter
 \newcommand{\makethesistitle}[9]
 {
 	\documentmeta{РПЗ к ВКР}{#5}{#4}{#3}
@@ -143,10 +159,31 @@
 	
 	\setcounter{page}{2}
 }
-\makeatletter
+
+% Создание титульной страницы отчета по НИР
+\newcommand{\makeresearchtitle}[8]
+{
+	\documentmeta{Отчет по НИР}{#5}{#4}{#3}
+	
+	\begin{titlepage}
+		\centering
+		
+		\titlepageheader{#1}{#2}
+		\vspace{15.8mm}
+		
+		\titlepageresearchtitle{#3}
+		\vfill
+		
+		\titlepageauthors{#4}{#5}{Руководитель НИР}{#6}{#7}{#8}{}
+		\vspace{14mm}
+		
+		\textit{{\the\year} г.}
+	\end{titlepage}
+	
+	\setcounter{page}{2}
+}
 
 % Создание титульной страницы РПЗ к КР
-\makeatletter
 \newcommand{\makecourseworktitle}[8]
 {
 	\documentmeta{РПЗ к КР}{#5}{#4}{#3}
@@ -168,10 +205,8 @@
 	
 	\setcounter{page}{2}
 }
-\makeatletter
 
 % Создание титульной страницы отчета
-\makeatletter
 \newcommand{\makereporttitle}[9]
 {
 	\documentmeta{Отчет}{#8}{#3 #4}{#5}
@@ -193,4 +228,3 @@
 	
 	\setcounter{page}{2}
 }
-\makeatletter
