@@ -20,8 +20,6 @@
 \begin{appendices}
 \end{appendices}
 
-\imgw{filename}{position}{width}{caption}
-\imgh{filename}{position}{height}{caption}
-\imgs{filename}{position}{scale}{caption}
+\includeimage{filename}{type}{position}{width}{caption}
 
-\listingfile{filename}{language}{caption}{other parameters}
+\includelisting{filename}{caption}

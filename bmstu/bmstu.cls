@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bmstu}[2021/11/01 v1.0 BMSTU class]
+\ProvidesClass{bmstu}[2022/01/02 v1.0 BMSTU class]
 
 % Установка базового класса
 \LoadClass[14pt]{extreport}
@@ -46,68 +46,12 @@
 \titlespacing{\section}{12.5mm}{10pt}{10pt}
 \titlespacing{\subsection}{12.5mm}{10pt}{10pt}
 
-% Подключения пакетов для фигур
-\RequirePackage{graphicx}
-\RequirePackage{float}
-\RequirePackage{wrapfig}
-\RequirePackage{tikzscale}
-
-% Создание рисунков
-\newcommand{\imgw}[4]
-{
-	\begin{figure}[#2]
-		\center{\includegraphics[width=#3]{inc/img/#1}}
-		\caption{#4}
-		\label{img:#1}
-	\end{figure}
-}
-\newcommand{\imgh}[4]
-{
-	\begin{figure}[#2]
-		\center{\includegraphics[height=#3]{inc/img/#1}}
-		\caption{#4}
-		\label{img:#1}
-	\end{figure}
-}
-\newcommand{\imgs}[4]
-{
-	\begin{figure}[#2]
-		\center{\includegraphics[scale=#3]{inc/img/#1}}
-		\caption{#4}
-		\label{img:#1}
-	\end{figure}
-}
+\RequirePackage{bmstu_figure}
+\RequirePackage{bmstu_listing}
 
 % Подключение пакетов таблиц
 \RequirePackage{tabularx}
 \RequirePackage{booktabs}
-
-% Настройка графиков
-\RequirePackage{pgfplots}
-\pgfplotsset{compat=newest}
-
-% Настройка листингов
-\RequirePackage{listings}
-\RequirePackage{listingsutf8}
-\lstset{
-	basicstyle=\small\ttfamily,
-	frame=single,
-	numbers=none,
-	breaklines=true,
-	inputencoding=utf8/koi8-r,
-}
-
-% Создание листинга
-\newcommand{\listingfile}[4]{
-	\lstinputlisting[
-		float=h!,
-		abovecaptionskip=-5pt,
-		caption={#3},
-		label={lst:#1},
-		language={#2},
-		#4,
-	]{inc/lst/#1}
-}
 
 % Настройка подписей
 \RequirePackage[
@@ -135,10 +79,10 @@
 \RequirePackage{csquotes}
 \DeclareFieldFormat{urldate}{(дата обращения:\addspace\thefield{urlday}\adddot \thefield{urlmonth}\adddot\thefield{urlyear})}
 
-% Подключение пакета для гиперссылок
+% Подключение пакета гиперссылок
 \RequirePackage[unicode,hidelinks]{hyperref}
 
-% Подключение пакета для управляющих конструкций
+% Подключение пакета управляющих конструкций
 \RequirePackage{xifthen}
 
 \RequirePackage{bmstu_title}

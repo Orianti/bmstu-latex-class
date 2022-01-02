@@ -1,0 +1,27 @@
+% Настройка листингов
+\RequirePackage{listings}
+\RequirePackage{listingsutf8}
+\lstset{
+	basicstyle=\small\ttfamily,
+	frame=single,
+	numbers=none,
+	breaklines=true,
+	inputencoding=utf8/koi8-r,
+}
+
+% Команда создания простого листинга
+\newcommand{\includelisting}[2]
+{
+	\lstinputlisting[
+		float=h!,
+		abovecaptionskip=-5pt,
+		caption={#2},
+		label={lst:#1}
+	]{inc/lst/#1}
+}
+
+% Команда создания листинга с нумерацией строк и подсветкой синтаксиса
+\newcommand{\includelistingpretty}[3]
+{
+	
+}

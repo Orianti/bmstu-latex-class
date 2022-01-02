@@ -1,0 +1,35 @@
+% Подключения пакетов фигур
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{wrapfig}
+\RequirePackage{tikzscale}
+
+% Подключения пакета графиков
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+% Команда создания рисунка
+\newcommand{\includeimage}[5]
+{
+	\ifthenelse{\equal{#2}{f}}
+	{
+		\begin{figure}[#3]
+			\center{\includegraphics[width=#4]{inc/img/#1}}
+			\caption{#5}
+			\label{img:#1}
+		\end{figure}
+	}
+	{
+		\ifthenelse{\equal{#2}{w}}
+		{
+			\begin{wrapfigure}{#3}{#4}
+				\center{\includegraphics[width=#4]{inc/img/#1}}
+				\caption{#5}
+				\label{img:#1}
+			\end{wrapfigure}
+		}
+		{
+			\PackageError{bmstu}{unknown image type}{}	
+		}
+	}
+}
