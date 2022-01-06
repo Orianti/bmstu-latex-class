@@ -23,3 +23,4 @@
 \includeimage{filename}{type}{position}{width}{caption}
 
 \includelisting{filename}{caption}
+\includelistingpretty{filename}{language}{caption}

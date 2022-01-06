@@ -10,7 +10,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is Mikael Novikov.
 %
 % This work consists of all files listed in manifest.txt.
@@ -19,20 +19,45 @@
 \RequirePackage{listings}
 \RequirePackage{listingsutf8}
 \lstset{
-	basicstyle=\small\ttfamily,
-	frame=single,
-	numbers=none,
-	breaklines=true,
 	inputencoding=utf8/koi8-r,
+	basicstyle=\small\ttfamily,
+	rulecolor=\color{black},
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4,
+	showstringspaces=false,
+	float=h!,
+	abovecaptionskip=-5pt,
 }
 
 % Команда создания простого листинга
 \newcommand{\includelisting}[2]
 {
 	\lstinputlisting[
-		float=h!,
-		abovecaptionskip=-5pt,
+		frame=single,
 		caption={#2},
-		label={lst:#1}
+		label={lst:#1},
+	]{inc/lst/#1}
+}
+
+\definecolor{numbers}{rgb}{0.5, 0.5, 0.5}
+\definecolor{keywords}{rgb}{0.13, 0.13, 1}
+\definecolor{comments}{rgb}{0, 0.5, 0}
+\definecolor{strings}{rgb}{0.9, 0, 0}
+
+% Команда создания листинга с подсветкой синтаксиса и нумерацией строк
+\newcommand{\includelistingpretty}[3]
+{
+	\lstinputlisting[
+		language={#2},
+		keywordstyle=\color{keywords},
+		stringstyle=\color{strings},
+		commentstyle=\color{comments},
+		frame=leftline,
+		numbers=left,
+		numberstyle=\footnotesize\color{numbers},
+		caption={#3},
+		label={lst:#1},
 	]{inc/lst/#1}
 }

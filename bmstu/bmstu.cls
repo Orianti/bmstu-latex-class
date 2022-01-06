@@ -10,7 +10,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is Mikael Novikov.
 %
 % This work consists of all files listed in manifest.txt.
@@ -62,6 +62,9 @@
 \titlespacing{\chapter}{12.5mm}{-22pt}{10pt}
 \titlespacing{\section}{12.5mm}{10pt}{10pt}
 \titlespacing{\subsection}{12.5mm}{10pt}{10pt}
+
+% Подключение пакета цветов
+\RequirePackage{xcolor}
 
 \RequirePackage{bmstu_figure}
 \RequirePackage{bmstu_listing}
