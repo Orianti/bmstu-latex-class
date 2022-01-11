@@ -32,6 +32,6 @@ cp -R bmstu $(kpsewhich -var-value=TEXMFHOME)/tex/latex/
 cp bmstu.cwl ~/.config/texstudio/completion/user/
 ```
 
-### Windows 10
+### Windows
 
 Скопировать директорию `bmstu` в `C:\Users\<user>\Appdata\Local\MikTex\<number>\tex\latex\local\`.
