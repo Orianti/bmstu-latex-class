@@ -68,8 +68,8 @@
 % Подключение пакета цветов
 \RequirePackage{xcolor}
 
-\RequirePackage{bmstu_figure}
-\RequirePackage{bmstu_listing}
+\RequirePackage{bmstu-figure}
+\RequirePackage{bmstu-listing}
 
 % Подключение пакетов таблиц
 \RequirePackage{tabularx}
@@ -107,9 +107,9 @@
 % Подключение пакета управляющих конструкций
 \RequirePackage{xifthen}
 
-\RequirePackage{bmstu_title}
-\RequirePackage{bmstu_essay}
-\RequirePackage{bmstu_toc}
-\RequirePackage{bmstu_defabbr}
-\RequirePackage{bmstu_biblio}
-\RequirePackage{bmstu_appendix}
+\RequirePackage{bmstu-title}
+\RequirePackage{bmstu-essay}
+\RequirePackage{bmstu-toc}
+\RequirePackage{bmstu-defabbr}
+\RequirePackage{bmstu-biblio}
+\RequirePackage{bmstu-appendix}
