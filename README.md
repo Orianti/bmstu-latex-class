@@ -42,4 +42,10 @@ cp bmstu.cwl ~/.config/texstudio/completion/user/
 
 ## Лицензия
 
-[The LaTeX Project Public License](https://www.latex-project.org/lppl/)
+Файлы, перечисленные в `manifest.txt`, распространяются по лицензии [The LaTeX Project Public License](https://www.latex-project.org/lppl/).
+
+Файл `bmstu-logo.pdf` является гербом МГТУ им. Н. Э. Баумана и защищен авторским правом. Распространяется по принципам свободного использования произведений (ст. 1274 ГК РФ).
+
+---
+
+Copyright © Новиков М. Р., 2020–2022<br>
