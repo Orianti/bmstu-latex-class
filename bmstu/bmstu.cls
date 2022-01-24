@@ -17,7 +17,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bmstu}[2022/01/06 v1.0.0 BMSTU class]
+\ProvidesClass{bmstu}[2022/01/24 v1.0.0 BMSTU class]
 
 % Установка базового класса
 \LoadClass[14pt]{extreport}

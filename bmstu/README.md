@@ -1,6 +1,6 @@
 # bmstu package
 
-Release 2022-01-23 (v1.0.0)
+Release 2022-01-24 (v1.0.0)
 
 ## Overview
 

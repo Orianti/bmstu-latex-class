@@ -11,9 +11,7 @@
 
 ## Документация
 
-[Краткая справка по LaTeX](docs/introduction-to-latex.md)
-
-[Примеры использования команд и окружений](docs/documentation.md)
+Примеры использования команд и окружений представлены в файле [examples.tex](bmstu/examples/examples.tex). В файле [examples.pdf](bmstu/examples/examples.pdf) представлен скомпилированный документ.
 
 Шаблоны для создания:
 * [отчетов](templates/report/)
@@ -23,22 +21,18 @@
 
 ## Установка
 
-В классе используются следующие пакеты: ```afterpage, amsmath, amssymb, appendix, babel, blatex, booktabs, csquotes, enumitem, etoolbox, extreport, float, fontenc, geometry, graphicx, hyperref, indentfirst, inputenc, lastpage, listings, listingsutf8, lscape, microtype, pgfplots, setspace, stackengine, tabularx, tikzscale, titlesec, ulem, wrapfig, xifthen```. Во избежание проблем после установки класса, убедитесь, что все необходимые пакеты установлены.
-
 ### Linux
 
-```bash
-cp -R bmstu $(kpsewhich -var-value=TEXMFHOME)/tex/latex/
-```
+Дистрибутив **TeX Live** — https://www.tug.org/texlive/quickinstall.html<br>
+Редактор **TeXstudio**  — https://www.texstudio.org/
 
-Рекомендуется установить подсказки для редактора, которые определены в файле `bmstu.cwl`. Например, для установки подсказок в TeXstudio необходимо выполнить следующую команду:
-```bash
-cp bmstu.cwl ~/.config/texstudio/completion/user/
-```
+Рекомендуется установить подсказки для редактора, которые определены в файле `bmstu.cwl`.
 
 ### Windows
 
-Скопировать директорию `bmstu` в директорию, полученную выполнением команды `kpsewhich -var-value=TEXMFHOME`.
+Дистрибутив **TeX Live** — https://www.tug.org/texlive/windows.html<br>
+Дистрибутив **MiKTeX** — https://miktex.org/download<br>
+Редактор **TeXstudio** — https://www.texstudio.org/<br>
 
 ## Лицензия
 
