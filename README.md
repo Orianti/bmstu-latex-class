@@ -1,26 +1,57 @@
-# LaTeX-класс bmstu
+# LaTeX-класс `bmstu`
 
-Класс `bmstu.cls` определяет команды и окружения для создания отчетов и расчетно-пояснительных записок в соответствии с требованиями МГТУ им. Н. Э. Баумана.
+<a href='https://www.ctan.org/pkg/bmstu'>![Version shield](https://img.shields.io/ctan/v/bmstu)</a>
+<a href='https://www.latex-project.org/lppl/'>![License shield](https://img.shields.io/ctan/l/bmstu)</a>
+<a href='#'>![TestVKR build shield](https://img.shields.io/badge/TestVKR-build%20203-orange)</a>
 
-Сгенерированные файлы соответствуют ГОСТ 7.32-2017, расчетно-пояснительные записки к выпускным квалификационным работам успешно проходят проверку TestVKR.exe (сборка 203).
+LaTeX-класс `bmstu` призван упростить создание отчетов и расчетно-пояснительных записок студентами МГТУ им. Н. Э. Баумана. Пакет, содержащий класс, размещен в CTAN и [**доступен для загрузки**](https://ctan.org/pkg/bmstu).
 
-В файле [docs/docs.pdf](docs/docs.pdf) представлены примеры использования команд и окружений класса. В директории [templates/report/](templates/report/) представлен шаблон проекта для отчета, в [templates/coursework/](templates/coursework/) — для расчетно-пояснительной записки к курсовой работе, в [templates/thesis/](templates/thesis/) — для расчетно-пояснительной записки к выпускной квалификационной работе.
+К особенностям класса можно отнести:
+* генерацию титульных листов для всех основных типов работ — лабораторных, курсовых, научно-исследовательских, дипломных;
+* генерацию реферата с подсчетом количества объектов;
+* генерацию списков определений и сокращений;
+* генерацию других шаблонных элементов документа;
+* команды для упрощения работы с изображениями, листингами и пр.
+
+Сгенерированные файлы соответствуют [**требованиям МГТУ им. Н. Э. Баумана**](https://mf.bmstu.ru/info/uu/ot/norm_docs/docs/polozhenie_normcontrol_pril1.pdf) и [**ГОСТ 7.32-2017**](https://docs.cntd.ru/document/1200157208). Расчетно-пояснительные записки к выпускным квалификационным работам успешно проходят проверку программы TestVKR (сборка 203).
+
+Примеры использования команд и окружений представлены в файлах [examples.tex](bmstu/examples/examples.tex) и [examples.pdf](bmstu/examples/examples.pdf). Приведены шаблоны для разработки [отчетов](templates/report/), [расчетно-пояснительных записок к курсовым работам](templates/coursework/), [отчетов по научно-исследовательским работам](templates/research/) и [расчетно-пояснительных записок к выпускным квалификационным работам](templates/thesis/).
 
 ## Установка
 
-В классе используются следующие пакеты: ```afterpage, amsmath, amssymb, appendix, babel, blatex, booktabs, csquotes, enumitem, etoolbox, extreport, float, fontenc, geometry, graphicx, hyperref, indentfirst, inputenc, lastpage, listings, listingsutf8, lscape, microtype, pgfplots, setspace, stackengine, tabularx, tikzscale, titlesec, ulem, wrapfig, xifthen```. Во избежание проблем после установки класса, убедитесь, что все необходимые пакеты установлены.
+Перед установкой класса убедитесь, что установлен один из дистрибутивов LaTeX.
 
-### Linux
+### Установка из CTAN
 
+Так как класс размещен в CTAN, можно выполнить автоматическую установку пакета.
+
+#### Linux (TeX Live)
 ```bash
-cp -R bmstu ~/texmf/tex/latex/
+sudo tlmgr install bmstu
 ```
 
-Рекомендуется установить подсказки для редактора, которые определены в файле `bmstu.cwl`. Например, для установки подсказок в TeXstudio необходимо выполнить следующую команду:
+### Ручная установка
+
+Если по какой-то причине автоматическая установка невозможна, необходимо установить класс вручную. Для этого следует добавить пакет в texmf-дерево пользователя.
+
+#### Linux (TeX Live)
+
 ```bash
-cp bmstu.cwl ~/.config/texstudio/completion/user/
+git clone https://github.com/Orianti/bmstu-latex-class.git
+cd bmstu-latex-class/
+mkdir -p $(kpsewhich -var-value TEXMFHOME)/tex/latex/ && cp -R bmstu $_
 ```
 
-### Windows 10
+## Вклад в разработку
 
-Скопировать директорию `bmstu` в `C:\Users\<user>\Appdata\Local\MikTex\<number>\tex\latex\local\`.
+Если вы обнаружили некорректное поведение команд пакета, несоответствие требованиям, орфографические ошибки или опечатки и прочие недочеты, пожалуйста, создайте Issue. Там же вы можете оставить свои предложения для улучшения пакета. Также вы можете непосредственно поучаствовать в разработке, создав Pull Request.
+
+## Лицензия
+
+Файлы, перечисленные в `manifest.txt`, распространяются по лицензии [**The LaTeX Project Public License**](https://www.latex-project.org/lppl/).
+
+Файл `bmstu-logo.pdf` является гербом МГТУ им. Н. Э. Баумана и защищен авторским правом. Распространяется по принципам свободного использования произведений (ст. 1274 ГК РФ).
+
+---
+
+Copyright © Новиков М. Р., 2020–2022<br>

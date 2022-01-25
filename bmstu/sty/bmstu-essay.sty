@@ -1,0 +1,68 @@
+%% bmstu_essay.sty
+%% Copyright 2022 Mikael Novikov
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Mikael Novikov.
+%
+% This work consists of all files listed in manifest.txt.
+
+% Подсчет количества страниц
+\RequirePackage{lastpage}
+
+% Подсчет количества рисунков и таблиц
+\RequirePackage{etoolbox}
+\newcounter{totfigures}
+\newcounter{tottables}
+\providecommand\totfig{}
+\providecommand\tottab{}
+\makeatletter
+\AtEndDocument{%
+	\addtocounter{totfigures}{\value{figure}}%
+	\addtocounter{tottables}{\value{table}}%
+	\immediate\write\@mainaux{%
+		\string\gdef\string\totfig{\number\value{totfigures}}%
+		\string\gdef\string\tottab{\number\value{tottables}}%
+	}%
+}
+\makeatother
+\pretocmd{\chapter}{\addtocounter{totfigures}{\value{figure}}\setcounter{figure}{0}}{}{}
+\pretocmd{\chapter}{\addtocounter{tottables}{\value{table}}\setcounter{table}{0}}{}{}
+
+% Подсчет количества использованных источников
+\newcounter{totbibentries}
+\newcommand*{\listcounted}{}
+\providecommand\totbib{}
+\makeatletter
+\AtDataInput{%
+	\xifinlist{\abx@field@entrykey}\listcounted%
+	{}%
+	{\stepcounter{totbibentries}%
+		\listxadd\listcounted{\abx@field@entrykey}}%
+}%
+\makeatother
+
+% Подсчет количества приложений
+\usepackage{totcount, assoccnt}
+\newcounter{appendixchapters}
+\DeclareAssociatedCounters{chapter}{appendixchapters}
+\regtotcounter{appendixchapters}
+
+% Создание страницы реферата
+\newenvironment{essay}[1]
+{
+	\chapter*{РЕФЕРАТ}
+	\addcontentsline{toc}{chapter}{РЕФЕРАТ}
+	
+	Расчетно-пояснительная записка \begin{NoHyper}\pageref{LastPage}\end{NoHyper}~с., \totfig~рис., \tottab~табл., \thetotbibentries~источн., \total{appendixchapters}~прил.
+	
+	\noindent \MakeUppercase{#1} \par
+}{}

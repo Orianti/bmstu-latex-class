@@ -1,5 +1,6 @@
 \makereporttitle{faculty}{department}{type}{course (optional)}{theme (optional)}{option (optional)}{group}{student}{teacher}
 \makecourseworktitle{faculty}{department}{theme}{group}{student}{academic advisor}{consultant (optional)}{consultant (optional)}
+\makeresearchtitle{faculty}{department}{theme}{group}{student}{academic advisor}{consultant (optional)}{consultant (optional)}
 \makethesistitle{faculty}{department}{theme}{group}{student}{academic advisor}{consultant (optional)}{consultant (optional)}{supervisor}
 
 \begin{essay}{keywords}
@@ -19,8 +20,7 @@
 \begin{appendices}
 \end{appendices}
 
-\imgw{filename}{position}{width}{caption}
-\imgh{filename}{position}{height}{caption}
-\imgs{filename}{position}{scale}{caption}
+\includeimage{filename}{type}{position}{width}{caption}
 
-\listingfile{filename}{language}{caption}
+\includelisting{filename}{caption}
+\includelistingpretty{filename}{language}{caption}
