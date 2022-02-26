@@ -48,7 +48,7 @@ mkdir -p $(kpsewhich -var-value TEXMFHOME)/tex/latex/ && cp -R bmstu $_
 
 ## Лицензия
 
-Файлы, перечисленные в `manifest.txt`, распространяются по лицензии [**The LaTeX Project Public License**](https://www.latex-project.org/lppl/).
+Файлы, перечисленные в `bmstu/manifest.txt`, распространяются по лицензии [**The LaTeX Project Public License**](https://www.latex-project.org/lppl/).
 
 Файл `bmstu-logo.pdf` является гербом МГТУ им. Н. Э. Баумана и защищен авторским правом. Распространяется по принципам свободного использования произведений (ст. 1274 ГК РФ).
 
