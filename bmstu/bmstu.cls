@@ -20,7 +20,7 @@
 \ProvidesClass{bmstu}[2022/01/24 v1.0.0 BMSTU class]
 
 % Установка базового класса
-\LoadClass[14pt]{extreport}
+\LoadClass[a4paper,oneside,14pt]{extreport}
 
 % Настройка кодировки и языков
 \RequirePackage[T1,T2A]{fontenc}
