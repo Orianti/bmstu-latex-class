@@ -142,11 +142,17 @@
 }
 
 % Создание прочих полей
-\newcommand{\titlepageothers}[2]
+\newcommand*\titlepageotherscontent{}
+
+\newcommand{\maketitlepageothers}[2]
 {
-	#1 &
-	\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &
-	\fixunderline{#2}{40mm}{(И.~О.~Фамилия)} \\
+	\foreach \c in {#2} {
+		\gappto\titlepagestudentscontent{#1 &}
+        \gappto\titlepagestudentscontent{\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &}
+        \gappto\titlepagestudentscontent{\fixunderline}
+        \xappto\titlepagestudentscontent{{\c}}
+        \gappto\titlepagestudentscontent{{40mm}{(И.~О.~Фамилия)} \\}
+	}
 }
 
 % Установка исполнителей работы
@@ -154,20 +160,21 @@
 {
 	{
 		\maketitlepagestudent{#1}
+		\maketitlepageothers{#2}{#3}
+		\maketitlepageothers{Консультант}{#4}
+		\titlepageothers{Нормоконтролер}{#5}
+
 		\small
 		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
 			\titlepagestudentscontent
 
-			\titlepageothers{#2}{#3}
-			\ifthenelse{\isempty{#4}}{}{\titlepageothers{Консультант}{#4}}
-			\ifthenelse{\isempty{#5}}{}{\titlepageothers{Консультант}{#5}}
-			\ifthenelse{\isempty{#6}}{}{\titlepageothers{Нормоконтролер}{#6}}
+			\titlepageotherscontent			
 		\end{tabularx}
 	}
 }
 
 % Создание титульной страницы РПЗ к ВКР
-\newcommand{\makethesistitle}[8]
+\newcommand{\makethesistitle}[7]
 {
 	\documentmeta{РПЗ к ВКР}{#4}{}{#3}
 	
@@ -180,7 +187,7 @@
 		\titlepagenotetitle{К ВЫПУСКНОЙ КВАЛИФИКАЦИОННОЙ РАБОТЕ}{#3}
 		\vfill
 		
-		\titlepageauthors{#4}{Руководитель ВКР}{#5}{#6}{#7}{#8}
+		\titlepageauthors{#4}{Руководитель ВКР}{#5}{#6}{#7}
 		\vspace{14mm}
 		
 		\textit{{\the\year} г.}
@@ -190,7 +197,7 @@
 }
 
 % Создание титульной страницы отчета по НИР
-\newcommand{\makeresearchtitle}[7]
+\newcommand{\makeresearchtitle}[6]
 {
 	\documentmeta{Отчет по НИР}{#4}{}{#3}
 	
@@ -203,7 +210,7 @@
 		\titlepageresearchtitle{#3}
 		\vfill
 		
-		\titlepageauthors{#4}{Руководитель НИР}{#5}{#6}{#7}{}
+		\titlepageauthors{#4}{Руководитель НИР}{#5}{#6}{}
 		\vspace{14mm}
 		
 		\textit{{\the\year} г.}
@@ -213,7 +220,7 @@
 }
 
 % Создание титульной страницы РПЗ к КР
-\newcommand{\makecourseworktitle}[7]
+\newcommand{\makecourseworktitle}[6]
 {
 	\documentmeta{РПЗ к КР}{#4}{}{#3}
 	
@@ -226,7 +233,7 @@
 		\titlepagenotetitle{К КУРСОВОЙ РАБОТЕ}{#3}
 		\vfill
 		
-		\titlepageauthors{#4}{Руководитель курсовой работы}{#5}{#6}{#7}{}
+		\titlepageauthors{#4}{Руководитель курсовой работы}{#5}{#6}{}
 		\vspace{14mm}
 		
 		\textit{{\the\year} г.}
@@ -249,7 +256,7 @@
 		\titlepagereporttitle{#3}{#4}{#5}{#6}
 		\vfill
 		
-		\titlepageauthors{#7}{Преподаватель}{#8}{}{}{}
+		\titlepageauthors{#7}{Преподаватель}{#8}{}{}
 		\vspace{14mm}
 		
 		\textit{{\the\year} г.}
