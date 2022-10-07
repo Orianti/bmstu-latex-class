@@ -159,7 +159,10 @@
 \newcommand{\titlepageauthors}[6]
 {
 	{
+		\renewcommand{\titlepagestudentscontent}{}
 		\maketitlepagestudent{#1}
+
+		\renewcommand{\titlepageotherscontent}{}
 		\maketitlepageothers{#2}{#3}
 		\maketitlepageothers{Консультант}{#4}
 		\titlepageothers{Нормоконтролер}{#5}
