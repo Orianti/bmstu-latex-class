@@ -156,7 +156,7 @@
 }
 
 % Установка исполнителей работы
-\newcommand{\titlepageauthors}[6]
+\newcommand{\titlepageauthors}[5]
 {
 	{
 		\renewcommand{\titlepagestudentscontent}{}
@@ -165,7 +165,7 @@
 		\renewcommand{\titlepageotherscontent}{}
 		\maketitlepageothers{#2}{#3}
 		\maketitlepageothers{Консультант}{#4}
-		\titlepageothers{Нормоконтролер}{#5}
+		\maketitlepageothers{Нормоконтролер}{#5}
 
 		\small
 		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
