@@ -10,7 +10,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is Mikael Novikov.
 %
 % This work consists of all files listed in manifest.txt.
@@ -53,7 +53,7 @@
 		\hspace{-8mm}
 		\includegraphics[width=0.89\linewidth]{img/bmstu-logo}
 	\end{wrapfigure}
-	
+
 	{
 		\singlespacing \small
 		Министерство науки и высшего образования Российской Федерации \\
@@ -64,13 +64,13 @@
 		(национальный исследовательский университет)>> \\
 		(МГТУ им. Н.~Э.~Баумана) \\
 	}
-	
+
 	\vspace{-4.2mm}
 	\vhrulefill{0.9mm} \\
 	\vspace{-7mm}
 	\vhrulefill{0.2mm} \\
 	\vspace{2.8mm}
-	
+
 	{
 		\small
 		ФАКУЛЬТЕТ \longunderline{<<#1>>} \\
@@ -130,8 +130,8 @@
 
 \newcommand{\maketitlepagestudent}[1]
 {
-	\foreach \g/\s in {#1} {
-		\gappto\titlepagestudentscontent{Студент \fixunderline} 
+	\foreach \s/\g in {#1} {
+		\gappto\titlepagestudentscontent{Студент \fixunderline}
 		\xappto\titlepagestudentscontent{{\g}}
 		\gappto\titlepagestudentscontent{{25mm}{(Группа)} &}
 		\gappto\titlepagestudentscontent{\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &}
@@ -171,7 +171,7 @@
 		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
 			\titlepagestudentscontent
 
-			\titlepageotherscontent			
+			\titlepageotherscontent
 		\end{tabularx}
 	}
 }
@@ -180,22 +180,22 @@
 \newcommand{\makethesistitle}[7]
 {
 	\documentmeta{РПЗ к ВКР}{#4}{}{#3}
-	
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepagenotetitle{К ВЫПУСКНОЙ КВАЛИФИКАЦИОННОЙ РАБОТЕ}{#3}
 		\vfill
-		
+
 		\titlepageauthors{#4}{Руководитель ВКР}{#5}{#6}{#7}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
 
@@ -203,22 +203,22 @@
 \newcommand{\makeresearchtitle}[6]
 {
 	\documentmeta{Отчет по НИР}{#4}{}{#3}
-	
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepageresearchtitle{#3}
 		\vfill
-		
+
 		\titlepageauthors{#4}{Руководитель НИР}{#5}{#6}{}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
 
@@ -226,22 +226,22 @@
 \newcommand{\makecourseworktitle}[6]
 {
 	\documentmeta{РПЗ к КР}{#4}{}{#3}
-	
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepagenotetitle{К КУРСОВОЙ РАБОТЕ}{#3}
 		\vfill
-		
+
 		\titlepageauthors{#4}{Руководитель курсовой работы}{#5}{#6}{}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
 
@@ -249,21 +249,21 @@
 \newcommand{\makereporttitle}[8]
 {
 	\documentmeta{Отчет}{#7}{по #3 по курсу #4}{#5}
-	
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepagereporttitle{#3}{#4}{#5}{#6}
 		\vfill
-		
+
 		\titlepageauthors{#7}{Преподаватель}{#8}{}{}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
