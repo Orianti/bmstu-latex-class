@@ -1,5 +1,5 @@
 %% bmstu.cls
-%% Copyright 2022 Mikael Novikov
+%% Copyright 2023 Mikael Novikov
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -17,7 +17,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{bmstu}[2022/01/24 v1.0.0 BMSTU class]
+\ProvidesClass{bmstu}[2023/01/28 v2.0.0 BMSTU class]
 
 % Установка базового класса
 \LoadClass[a4paper,oneside,14pt]{extreport}
