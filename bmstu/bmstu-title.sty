@@ -1,5 +1,5 @@
 %% bmstu_title.sty
-%% Copyright 2022 Mikael Novikov
+%% Copyright 2023 Mikael Novikov
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -10,7 +10,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is Mikael Novikov.
 %
 % This work consists of all files listed in manifest.txt.
@@ -51,9 +51,9 @@
 	\begin{wrapfigure}[7]{l}{0.14\linewidth}
 		\vspace{3.4mm}
 		\hspace{-8mm}
-		\includegraphics[width=0.89\linewidth]{img/bmstu-logo}
+		\includegraphics[width=0.89\linewidth]{bmstu-logo}
 	\end{wrapfigure}
-	
+
 	{
 		\singlespacing \small
 		Министерство науки и высшего образования Российской Федерации \\
@@ -64,13 +64,13 @@
 		(национальный исследовательский университет)>> \\
 		(МГТУ им. Н.~Э.~Баумана) \\
 	}
-	
+
 	\vspace{-4.2mm}
 	\vhrulefill{0.9mm} \\
 	\vspace{-7mm}
 	\vhrulefill{0.2mm} \\
 	\vspace{2.8mm}
-	
+
 	{
 		\small
 		ФАКУЛЬТЕТ \longunderline{<<#1>>} \\
@@ -84,12 +84,12 @@
 {
 	{
 		\LARGE \bfseries
-		ОТЧЕТ \\
+		РАСЧЕТНО-ПОЯСНИТЕЛЬНАЯ ЗАПИСКА \\
 	}
 	\vspace{5mm}
 	{
 		\Large \itshape
-		ПО НАУЧНО-ИССЛЕДОВАТЕЛЬСКОЙ РАБОТЕ \\
+		К НАУЧНО-ИССЛЕДОВАТЕЛЬСКОЙ РАБОТЕ \\
 		\vspace{5mm}
 		НА ТЕМУ: \\
 		<<#1>> \\
@@ -124,124 +124,146 @@
 }
 
 % Создание поля студента
-\newcommand{\titlepagestudent}[2]
+\RequirePackage{pgffor}
+
+\newcommand*\titlepagestudentscontent{}
+
+\newcommand{\maketitlepagestudent}[1]
 {
-	Студент \fixunderline{#1}{25mm}{(Группа)} &
-	\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &
-	\fixunderline{#2}{40mm}{(И.~О.~Фамилия)} \\
+	\foreach \s/\g in {#1} {
+		\gappto\titlepagestudentscontent{Студент \fixunderline}
+		\xappto\titlepagestudentscontent{{\g}}
+		\gappto\titlepagestudentscontent{{25mm}{(Группа)} &}
+		\gappto\titlepagestudentscontent{\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &}
+		\gappto\titlepagestudentscontent{\fixunderline}
+		\xappto\titlepagestudentscontent{{\s}}
+		\gappto\titlepagestudentscontent{{40mm}{(И.~О.~Фамилия)} \\}
+	}
 }
 
 % Создание прочих полей
-\newcommand{\titlepageothers}[2]
+\newcommand*\titlepageotherscontent{}
+
+\newcommand{\maketitlepageothers}[2]
 {
-	#1 &
-	\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &
-	\fixunderline{#2}{40mm}{(И.~О.~Фамилия)} \\
+	\foreach \c in {#2} {
+		\gappto\titlepagestudentscontent{#1 &}
+		\gappto\titlepagestudentscontent{\fixunderline{}{40mm}{(Подпись, дата)} \vspace{1.3mm} &}
+		\gappto\titlepagestudentscontent{\fixunderline}
+		\xappto\titlepagestudentscontent{{\c}}
+		\gappto\titlepagestudentscontent{{40mm}{(И.~О.~Фамилия)} \\}
+	}
 }
 
 % Установка исполнителей работы
-\newcommand{\titlepageauthors}[7]
+\newcommand{\titlepageauthors}[5]
 {
 	{
+		\renewcommand{\titlepagestudentscontent}{}
+		\maketitlepagestudent{#1}
+
+		\renewcommand{\titlepageotherscontent}{}
+		\maketitlepageothers{#2}{#3}
+		\maketitlepageothers{Консультант}{#4}
+		\maketitlepageothers{Нормоконтролер}{#5}
+
 		\small
 		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
-			\titlepagestudent{#1}{#2}
-			\titlepageothers{#3}{#4}
-			\ifthenelse{\isempty{#5}}{}{\titlepageothers{Консультант}{#5}}
-			\ifthenelse{\isempty{#6}}{}{\titlepageothers{Консультант}{#6}}
-			\ifthenelse{\isempty{#7}}{}{\titlepageothers{Нормоконтролер}{#7}}
+			\titlepagestudentscontent
+
+			\titlepageotherscontent
 		\end{tabularx}
 	}
 }
 
 % Создание титульной страницы РПЗ к ВКР
-\newcommand{\makethesistitle}[9]
+\newcommand{\makethesistitle}[7]
 {
-	\documentmeta{РПЗ к ВКР}{#5}{#4}{#3}
-	
+	\documentmeta{РПЗ к ВКР}{#4}{}{#3}
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepagenotetitle{К ВЫПУСКНОЙ КВАЛИФИКАЦИОННОЙ РАБОТЕ}{#3}
 		\vfill
-		
-		\titlepageauthors{#4}{#5}{Руководитель ВКР}{#6}{#7}{#8}{#9}
+
+		\titlepageauthors{#4}{Руководитель ВКР}{#5}{#6}{#7}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
 
 % Создание титульной страницы отчета по НИР
-\newcommand{\makeresearchtitle}[8]
+\newcommand{\makeresearchtitle}[6]
 {
-	\documentmeta{Отчет по НИР}{#5}{#4}{#3}
-	
+	\documentmeta{Отчет по НИР}{#4}{}{#3}
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepageresearchtitle{#3}
 		\vfill
-		
-		\titlepageauthors{#4}{#5}{Руководитель НИР}{#6}{#7}{#8}{}
+
+		\titlepageauthors{#4}{Руководитель НИР}{#5}{#6}{}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
 
 % Создание титульной страницы РПЗ к КР
-\newcommand{\makecourseworktitle}[8]
+\newcommand{\makecourseworktitle}[6]
 {
-	\documentmeta{РПЗ к КР}{#5}{#4}{#3}
-	
+	\documentmeta{РПЗ к КР}{#4}{}{#3}
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepagenotetitle{К КУРСОВОЙ РАБОТЕ}{#3}
 		\vfill
-		
-		\titlepageauthors{#4}{#5}{Руководитель курсовой работы}{#6}{#7}{#8}{}
+
+		\titlepageauthors{#4}{Руководитель курсовой работы}{#5}{#6}{}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
 
 % Создание титульной страницы отчета
-\newcommand{\makereporttitle}[9]
+\newcommand{\makereporttitle}[8]
 {
-	\documentmeta{Отчет}{#8}{#3 #4}{#5}
-	
+	\documentmeta{Отчет}{#7}{по #3 по курсу #4}{#5}
+
 	\begin{titlepage}
 		\centering
-		
+
 		\titlepageheader{#1}{#2}
 		\vspace{15.8mm}
-		
+
 		\titlepagereporttitle{#3}{#4}{#5}{#6}
 		\vfill
-		
-		\titlepageauthors{#7}{#8}{Преподаватель}{#9}{}{}{}
+
+		\titlepageauthors{#7}{Преподаватель}{#8}{}{}
 		\vspace{14mm}
-		
+
 		\textit{{\the\year} г.}
 	\end{titlepage}
-	
+
 	\setcounter{page}{2}
 }
