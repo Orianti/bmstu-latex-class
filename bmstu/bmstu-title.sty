@@ -123,6 +123,12 @@
 	\ifthenelse{\isempty{#4}}{}{Вариант №~#4 \\}
 }
 
+% Установка заголовков отчета по практике
+\newcommand{\titlepagepracticetitle}[1]
+{
+	\textbf{#1} \\
+}
+
 % Создание поля студента
 \RequirePackage{pgffor}
 
@@ -152,6 +158,20 @@
 		\gappto\titlepagestudentscontent{\fixunderline}
 		\xappto\titlepagestudentscontent{{\c}}
 		\gappto\titlepagestudentscontent{{40mm}{(И.~О.~Фамилия)} \\}
+	}
+}
+
+% Создание прочих полей
+\newcommand*\titlepageotherscontenttwo{}
+
+\newcommand{\maketitlepageotherstwo}[2]
+{
+	\foreach \c in {#2} {
+		\gappto\titlepagestudentscontent{#1 &}
+		\gappto\titlepagestudentscontent{\vspace{1.3mm} &}
+		\gappto\titlepagestudentscontent{\fixunderline}
+		\xappto\titlepagestudentscontent{{\c}}
+		\gappto\titlepagestudentscontent{{40mm}{} \\}
 	}
 }
 
@@ -265,5 +285,50 @@
 		\textit{{\the\year} г.}
 	\end{titlepage}
 
+	\setcounter{page}{2}
+}
+
+% Установка исполнителей работы на практике
+\newcommand{\practicetitlepageauthors}[5]
+{
+	{
+		\renewcommand{\titlepagestudentscontent}{}
+		\maketitlepageotherstwo{Тип практики}{#1}
+		\maketitlepageotherstwo{Название предприятия}{#2}
+		
+		\maketitlepagestudent{#3}
+		
+		\renewcommand{\titlepageotherscontent}{}
+		\maketitlepageothers{Руководитель практики}{#4}
+		\maketitlepageothers{Руководитель практики}{#5}
+		
+		\small
+		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
+			\titlepagestudentscontent
+			\titlepageotherscontent
+		\end{tabularx}
+	}
+}
+
+% Создание титульной страницы отчета по производственной практике
+\newcommand{\makepracticetitle}[7]
+{
+	\documentmeta{ОТЧЕТ ПО ПРОИЗВОДСТВЕННОЙ ПРАКТИКЕ}{}{}{}
+	
+	\begin{titlepage}
+		\centering
+		
+		\titlepageheader{#1}{#2}
+		\vspace{15.8mm}
+		
+		\titlepagepracticetitle{ОТЧЕТ ПО ПРОИЗВОДСТВЕННОЙ ПРАКТИКЕ}
+		\vfill
+		
+		\practicetitlepageauthors{#3}{#4}{#5}{#6}{#7}
+		\vspace{14mm}
+		
+		\textit{{\the\year} г.}
+	\end{titlepage}
+	
 	\setcounter{page}{2}
 }
