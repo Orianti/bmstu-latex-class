@@ -289,11 +289,6 @@
 }
 
 % Установка исполнителей работы на практике
-% 1 Тип практики
-% 2 Название предприятия
-% 3 Студент ФИО кратко/группа
-% 4 Руководитель практики 1 (на предприятии)
-% 5 Руководитель практики 2 (в вузе)
 \newcommand{\practicetitlepageauthors}[5]
 {
 	{
@@ -301,34 +296,21 @@
 		\maketitlepageotherstwo{Тип практики}{#1}
 		\maketitlepageotherstwo{Название предприятия}{#2}
 		
-		%\renewcommand{\titlepagestudentscontent}{}
 		\maketitlepagestudent{#3}
 		
 		\renewcommand{\titlepageotherscontent}{}
 		\maketitlepageothers{Руководитель практики}{#4}
 		\maketitlepageothers{Руководитель практики}{#5}
 		
-%		\renewcommand{\titlepageotherscontenttwo}{}
-%		\maketitlepageotherstwo{Тип практики}{#1}
-%		\maketitlepageotherstwo{Название предприятия}{#2}
-		
 		\small
 		\begin{tabularx}{\textwidth}{@{}>{\hsize=.5\hsize}X>{\hsize=.25\hsize}X>{\hsize=.25\hsize}X@{}}
 			\titlepagestudentscontent
-			
 			\titlepageotherscontent
 		\end{tabularx}
 	}
 }
 
 % Создание титульной страницы отчета по производственной практике
-% 1 Название факультета
-% 2 Название кафедры
-% 3 Тип практики
-% 4 Название предприятия
-% 5 Студент ФИО кратко/группа
-% 6 Руководитель практики 1 (на предприятии)
-% 7 Руководитель практики 2 (в вузе)
 \newcommand{\makepracticetitle}[7]
 {
 	\documentmeta{ОТЧЕТ ПО ПРОИЗВОДСТВЕННОЙ ПРАКТИКЕ}{}{}{}
@@ -343,7 +325,6 @@
 		\vfill
 		
 		\practicetitlepageauthors{#3}{#4}{#5}{#6}{#7}
-%		\practicetitlepageauthors{#7}{Преподаватель}{#8}{}{}
 		\vspace{14mm}
 		
 		\textit{{\the\year} г.}
